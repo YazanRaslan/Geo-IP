@@ -1,0 +1,19 @@
+<mat-grid-list cols="4" rowHeight="49.9vh">
+  <mat-grid-tile colspan="1" rowspan="2" class="geo">
+    <app-geo-ip></app-geo-ip>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="2" class="graph">
+    <div style="margin-right: 3rem;">
+      <mat-form-field appearance="fill">
+        <mat-label>Choose base</mat-label>
+        <mat-select [(ngModel)]="base">
+          <mat-option value="usd">US Dollar</mat-option>
+          <mat-option value="aed">Emirate Dirham</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <app-currency-rates *ngIf="base === 'usd'"></app-currency-rates>
+      <app-currency-rates-aed *ngIf="base === 'aed'"></app-currency-rates-aed></div>
+  </mat-grid-tile>
+</mat-grid-list>

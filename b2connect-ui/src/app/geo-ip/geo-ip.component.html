@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="input">
+        <mat-form-field appearance="outline">
+            <mat-label>IP Address</mat-label>
+            <input matInput placeholder="Enter IP Address" [(ngModel)]="ipAddress">
+        </mat-form-field>
+    </div>
+
+    <div class="btn">
+        <button mat-stroked-button color="primary" (click)="getGeoInfo()">Lookup</button>
+    </div>
+
+    <mat-card class="geo-info" *ngIf="ipInfo">
+        <ul>
+            <li *ngFor="let inf of ipInfo | keyvalue">
+                <b>{{inf.key | titlecase }}:</b> {{inf.value}}
+            </li>
+        </ul>
+    </mat-card>
+</div>
